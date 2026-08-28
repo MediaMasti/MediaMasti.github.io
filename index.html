@@ -3,61 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MediaMasti</title>
+
+    <title>MediaMasti | Fashion & Clothing</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
+            background: #f8f8f8;
             color: #222;
-            text-align: center;
         }
 
         header {
             background: #111;
             color: white;
-            padding: 50px 20px;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 48px;
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
         }
 
-        header p {
-            font-size: 20px;
-            margin-top: 10px;
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
         }
 
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .card {
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin: 0 0 15px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            color: #666;
         }
 
         .button {
             display: inline-block;
             margin-top: 20px;
-            padding: 12px 25px;
-            background: #1877f2;
+            padding: 14px 30px;
+            background: #111;
             color: white;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 5px;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .product-image {
+            height: 250px;
+            background: #e9e9e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+        }
+
+        .about {
+            background: white;
         }
 
         footer {
-            margin-top: 50px;
-            padding: 20px;
             background: #111;
             color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -65,24 +142,127 @@
 <body>
 
     <header>
-        <h1>MediaMasti</h1>
-        <p>Welcome to our official website</p>
+
+        <div class="logo">
+            MediaMasti
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#collection">Collection</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
     </header>
 
-    <main>
-        <div class="card">
-            <h2>Welcome!</h2>
+
+    <section class="hero" id="home">
+
+        <div>
+
+            <h1>Style That Speaks</h1>
+
             <p>
-                This is the official MediaMasti website.
-                We are currently building something amazing.
+                Discover modern fashion and clothing with MediaMasti.
             </p>
 
-            <a href="#" class="button">Learn More</a>
+            <a href="#collection" class="button">
+                Explore Collection
+            </a>
+
         </div>
-    </main>
+
+    </section>
+
+
+    <section class="section" id="collection">
+
+        <h2>Our Collection</h2>
+
+        <div class="products">
+
+            <div class="product">
+
+                <div class="product-image">
+                    👕
+                </div>
+
+                <h3>Men's Collection</h3>
+
+                <p>
+                    Modern and comfortable clothing for men.
+                </p>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    👗
+                </div>
+
+                <h3>Women's Collection</h3>
+
+                <p>
+                    Stylish fashion for every occasion.
+                </p>
+
+            </div>
+
+
+            <div class="product">
+
+                <div class="product-image">
+                    🧥
+                </div>
+
+                <h3>New Arrivals</h3>
+
+                <p>
+                    Discover our latest fashion collection.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section about" id="about">
+
+        <h2>About MediaMasti</h2>
+
+        <p>
+            MediaMasti is a modern clothing brand focused on
+            bringing stylish, comfortable and quality fashion
+            to our customers.
+        </p>
+
+    </section>
+
+
+    <section class="section" id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            Have a question? Get in touch with us.
+        </p>
+
+        <a href="mailto:hello@mediamasti.com" class="button">
+            Send Email
+        </a>
+
+    </section>
+
 
     <footer>
+
         © 2026 MediaMasti. All rights reserved.
+
     </footer>
 
 </body>
