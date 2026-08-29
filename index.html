@@ -4,136 +4,446 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MediaMasti | Fashion & Clothing</title>
+    <title>MediaMasti | Fashion & Style</title>
 
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f8f8f8;
-            color: #222;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #111111;
+        }
+
+        /* ================= NAVBAR ================= */
+
         header {
-            background: #111;
-            color: white;
-            padding: 18px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            padding: 0 25px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
             font-size: 28px;
-            font-weight: bold;
+            font-weight: 800;
+            letter-spacing: -1px;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
         }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #111111;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* ================= HERO ================= */
 
         .hero {
-            min-height: 500px;
+            height: 720px;
+            position: relative;
+
+            background-image:
+                linear-gradient(
+                    to right,
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.15)
+                ),
+                url("haithem-ferdi-rhJP_W8vYZY-unsplash.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
             display: flex;
             align-items: center;
-            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 40px 25px;
+            color: white;
+        }
+
+        .hero-content span {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(45px, 7vw, 82px);
+            line-height: 0.95;
+            margin: 20px 0;
+            max-width: 700px;
+        }
+
+        .hero-content p {
+            font-size: 19px;
+            line-height: 1.6;
+            max-width: 520px;
+            margin-bottom: 30px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #111111;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 3px;
+        }
+
+        .hero-button:hover {
+            background: #111111;
+            color: white;
+        }
+
+        /* ================= GENERAL SECTION ================= */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-heading {
             text-align: center;
-            padding: 60px 20px;
+            margin-bottom: 50px;
+        }
+
+        .section-heading span {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #777777;
+        }
+
+        .section-heading h2 {
+            font-size: 42px;
+            margin-top: 10px;
+        }
+
+        /* ================= PRODUCT GRID ================= */
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            display: block;
+
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            padding: 20px;
             background: white;
         }
 
-        .hero h1 {
-            font-size: 55px;
-            margin: 0 0 15px;
+        .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 7px;
         }
 
-        .hero p {
-            font-size: 21px;
-            color: #666;
+        .product-info p {
+            color: #777777;
+            font-size: 14px;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 14px 30px;
-            background: #111;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+        /* ================= WOMEN ================= */
 
-        .section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 70px 20px;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-size: 35px;
-            margin-bottom: 40px;
-        }
-
-        .products {
+        .women-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
-        .product {
+        .women-card {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .women-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+        .women-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .women-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            padding: 35px;
+            color: white;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.75)
+            );
+        }
+
+        .women-overlay h3 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        /* ================= NEW ARRIVALS ================= */
+
+        .new-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .new-card {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .new-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+        .new-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .new-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+
             background: white;
-            padding: 25px;
-            border-radius: 10px;
+            padding: 10px 16px;
+
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
         }
 
-        .product-image {
-            height: 250px;
-            background: #e9e9e9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            margin-bottom: 20px;
+        .new-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            padding: 30px;
+            color: white;
+
+            background: linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.75)
+            );
         }
 
-        .product h3 {
-            margin: 10px 0;
+        .new-info h3 {
+            font-size: 28px;
         }
+
+        /* ================= ABOUT ================= */
 
         .about {
-            background: white;
+            background: #f6f6f6;
         }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+        }
+
+        .about-content p {
+            color: #666666;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            color: #666666;
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: #111111;
+            color: white;
+
+            padding: 15px 32px;
+
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .contact-button:hover {
+            opacity: 0.8;
+        }
+
+        /* ================= FOOTER ================= */
 
         footer {
-            background: #111;
+            background: #111111;
             color: white;
+            padding: 45px 20px;
             text-align: center;
-            padding: 30px 20px;
         }
 
-        @media (max-width: 700px) {
+        footer .footer-logo {
+            font-size: 27px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-            header {
+        footer p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 900px) {
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                height: 600px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                height: auto;
+                padding: 20px;
                 flex-direction: column;
                 gap: 15px;
             }
 
-            nav a {
-                margin: 0 8px;
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
-            .hero h1 {
-                font-size: 38px;
+            .hero {
+                height: 600px;
             }
 
-            .products {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 65px 20px;
+            }
+
+            .section-heading h2 {
+                font-size: 34px;
+            }
+
+            .product-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .product-card img {
+                height: 500px;
+            }
+
+            .women-grid,
+            .new-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .women-card {
+                height: 550px;
+            }
+
+            .new-card {
+                height: 450px;
             }
         }
     </style>
@@ -141,33 +451,46 @@
 
 <body>
 
+    <!-- ================= NAVIGATION ================= -->
+
     <header>
+        <nav class="navbar">
 
-        <div class="logo">
-            MediaMasti
-        </div>
+            <div class="logo">
+                MediaMasti
+            </div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#collection">Collection</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#men">Men</a></li>
+                <li><a href="#women">Women</a></li>
+                <li><a href="#new">New Arrivals</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
         </nav>
-
     </header>
 
 
+    <!-- ================= HERO ================= -->
+
     <section class="hero" id="home">
 
-        <div>
+        <div class="hero-content">
 
-            <h1>Style That Speaks</h1>
+            <span>MediaMasti Fashion</span>
+
+            <h1>
+                Style That Speaks.
+            </h1>
 
             <p>
-                Discover modern fashion and clothing with MediaMasti.
+                Discover modern fashion, timeless style
+                and fresh inspiration for every occasion.
             </p>
 
-            <a href="#collection" class="button">
+            <a href="#new" class="hero-button">
                 Explore Collection
             </a>
 
@@ -176,53 +499,77 @@
     </section>
 
 
-    <section class="section" id="collection">
+    <!-- ================= MEN ================= -->
 
-        <h2>Our Collection</h2>
+    <section class="section" id="men">
 
-        <div class="products">
+        <div class="section-heading">
 
-            <div class="product">
+            <span>For Him</span>
 
-                <div class="product-image">
-                    👕
+            <h2>Men's Fashion</h2>
+
+        </div>
+
+
+        <div class="product-grid">
+
+            <div class="product-card">
+
+                <img
+                    src="servetphotograph-fashion-7047683_1920.jpg"
+                    alt="Men's Fashion"
+                >
+
+                <div class="product-info">
+                    <h3>Modern Style</h3>
+                    <p>Contemporary men's fashion inspiration.</p>
                 </div>
-
-                <h3>Men's Collection</h3>
-
-                <p>
-                    Modern and comfortable clothing for men.
-                </p>
 
             </div>
 
 
-            <div class="product">
+            <div class="product-card">
 
-                <div class="product-image">
-                    👗
+                <img
+                    src="stocksnap-blue-2566082_1920.jpg"
+                    alt="Men's Fashion"
+                >
+
+                <div class="product-info">
+                    <h3>Classic Look</h3>
+                    <p>Effortless style for everyday life.</p>
                 </div>
-
-                <h3>Women's Collection</h3>
-
-                <p>
-                    Stylish fashion for every occasion.
-                </p>
 
             </div>
 
 
-            <div class="product">
+            <div class="product-card">
 
-                <div class="product-image">
-                    🧥
+                <img
+                    src="pexels-cottonbro-6764143.jpg"
+                    alt="Men's Fashion"
+                >
+
+                <div class="product-info">
+                    <h3>Urban Fashion</h3>
+                    <p>Fresh looks with a modern attitude.</p>
                 </div>
 
-                <h3>New Arrivals</h3>
+            </div>
 
-                <p>
-                    Discover our latest fashion collection.
-                </p>
+
+            <div class="product-card">
+
+                <img
+                    src="pexels-onkar-salvi-28181962-11546650.jpg"
+                    alt="Men's Fashion"
+                >
+
+                <div class="product-info">
+                    <h3>Everyday Essentials</h3>
+                    <p>Comfort meets contemporary fashion.</p>
+                </div>
 
             </div>
 
@@ -231,37 +578,183 @@
     </section>
 
 
-    <section class="section about" id="about">
+    <!-- ================= WOMEN ================= -->
 
-        <h2>About MediaMasti</h2>
+    <section class="section" id="women">
 
-        <p>
-            MediaMasti is a modern clothing brand focused on
-            bringing stylish, comfortable and quality fashion
-            to our customers.
-        </p>
+        <div class="section-heading">
+
+            <span>For Her</span>
+
+            <h2>Women's Fashion</h2>
+
+        </div>
+
+
+        <div class="women-grid">
+
+            <div class="women-card">
+
+                <img
+                    src="naseebo-DrGzDjZfCow-unsplash.jpg"
+                    alt="Women's Fashion"
+                >
+
+                <div class="women-overlay">
+
+                    <h3>Elegant Style</h3>
+
+                    <p>
+                        Fashion designed to make an impression.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="women-card">
+
+                <img
+                    src="naseebo-iPxI9UUXrlc-unsplash.jpg"
+                    alt="Women's Fashion"
+                >
+
+                <div class="women-overlay">
+
+                    <h3>Modern Collection</h3>
+
+                    <p>
+                        Discover fresh and confident looks.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </section>
 
 
-    <section class="section" id="contact">
+    <!-- ================= NEW ARRIVALS ================= -->
 
-        <h2>Contact Us</h2>
+    <section class="section" id="new">
+
+        <div class="section-heading">
+
+            <span>Just In</span>
+
+            <h2>New Arrivals</h2>
+
+        </div>
+
+
+        <div class="new-grid">
+
+            <div class="new-card">
+
+                <img
+                    src="ds_30-clothes-4862980_1920.jpg"
+                    alt="New Fashion"
+                >
+
+                <div class="new-label">
+                    NEW
+                </div>
+
+                <div class="new-info">
+
+                    <h3>Fresh Looks</h3>
+
+                    <p>
+                        Explore the latest fashion inspiration.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="new-card">
+
+                <img
+                    src="ralphs_fotos-cap-4497323_1920.jpg"
+                    alt="New Fashion"
+                >
+
+                <div class="new-label">
+                    NEW
+                </div>
+
+                <div class="new-info">
+
+                    <h3>Latest Trends</h3>
+
+                    <p>
+                        Discover what's new in fashion.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="section about" id="about">
+
+        <div class="about-content">
+
+            <h2>About MediaMasti</h2>
+
+            <p>
+                MediaMasti is a fashion-focused brand bringing
+                modern style, inspiration and fresh ideas together.
+                We believe fashion is more than clothing —
+                it's a way to express who you are.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="section contact" id="contact">
+
+        <h2>Let's Connect</h2>
 
         <p>
-            Have a question? Get in touch with us.
+            Have a question or want to know more about our collection?
         </p>
 
-        <a href="mailto:hello@mediamasti.com" class="button">
-            Send Email
+        <a
+            href="mailto:hello@mediamasti.com"
+            class="contact-button"
+        >
+            Contact Us
         </a>
 
     </section>
 
 
+    <!-- ================= FOOTER ================= -->
+
     <footer>
 
-        © 2026 MediaMasti. All rights reserved.
+        <div class="footer-logo">
+            MediaMasti
+        </div>
+
+        <p>
+            © 2026 MediaMasti. All rights reserved.
+        </p>
 
     </footer>
 
