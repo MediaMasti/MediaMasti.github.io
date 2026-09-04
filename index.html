@@ -533,11 +533,7 @@ src="https://www.facebook.com/tr?id=2606730966464108&ev=PageView&noscript=1"
 
         <div class="product-grid">
 
-            <div class="product-card"
-                onclick="fbq('track', 'ViewContent', {
-                content_name: 'Modern Style',
-                content_type: 'product'
-            });">
+            <div class="product-card">
 
                 <img
                     src="servetphotograph-fashion-7047683_1920.jpg"
@@ -793,5 +789,78 @@ src="https://www.facebook.com/tr?id=2606730966464108&ev=PageView&noscript=1"
 
     </footer>
 
+<!-- ================= META PRODUCT VIEW TRACKING ================= -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const productCards = document.querySelectorAll(
+        '.product-card, .women-card, .new-card'
+    );
+
+    const observer = new IntersectionObserver(function (entries) {
+
+        entries.forEach(function (entry) {
+
+            if (!entry.isIntersecting) return;
+
+            const card = entry.target;
+
+            // Prevent the same product from firing repeatedly
+            if (card.dataset.viewTracked === 'true') return;
+
+            const productName =
+                card.querySelector('h3')?.textContent.trim() || 'Product';
+
+            const section = card.closest('section');
+
+            let category = 'Product';
+
+            if (section?.id === 'men') {
+                category = 'Men';
+            } 
+            else if (section?.id === 'women') {
+                category = 'Women';
+            } 
+            else if (section?.id === 'new') {
+                category = 'New Arrivals';
+            }
+
+            // Send ViewContent to Meta Pixel
+            if (typeof fbq === 'function') {
+
+                fbq('track', 'ViewContent', {
+                    content_name: productName,
+                    content_category: category,
+                    content_type: 'product'
+                });
+
+                // Mark this product as already tracked
+                card.dataset.viewTracked = 'true';
+
+                console.log(
+                    'ViewContent tracked:',
+                    category,
+                    productName
+                );
+            }
+
+        });
+
+    }, {
+        threshold: 0.60
+    });
+
+
+    // Start observing all product cards
+    productCards.forEach(function (card) {
+        observer.observe(card);
+    });
+
+});
+</script>
+
+<!-- ================= END META PRODUCT VIEW TRACKING ================= -->
+    
 </body>
 </html>
