@@ -1,1 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Product | MediaMasti Fashion</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    color: #222;
+}
+
+
+/* Product Container */
+
+.product-container {
+
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+
+}
+
+
+/* Image */
+
+.product-image img {
+
+    width: 100%;
+    border-radius: 18px;
+
+}
+
+
+/* Details */
+
+.product-details h1 {
+
+    font-size: 42px;
+    margin-bottom: 15px;
+
+}
+
+
+.price {
+
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0;
+
+}
+
+
+.description {
+
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+
+}
+
+
+/* Specification */
+
+.specifications {
+
+    margin-top: 30px;
+
+}
+
+
+.specifications h3 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.specifications ul {
+
+    padding-left: 20px;
+
+}
+
+
+.specifications li {
+
+    margin-bottom: 8px;
+
+}
+
+
+/* Buttons */
+
+.buttons {
+
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+
+}
+
+
+button {
+
+    padding: 14px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+
+/* Cart Button */
+
+.add-cart {
+
+    background: #e8dfd2;
+    color: #222;
+
+}
+
+
+/* Buy Button */
+
+.buy-now {
+
+    background: #222;
+    color: white;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-2px);
+    opacity: .9;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.product-container{
+
+grid-template-columns:1fr;
+
+}
+
+.product-details h1{
+
+font-size:32px;
+
+}
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="product-container">
+
+
+<div class="product-image">
+
+<img id="product-image">
+
+</div>
+
+
+
+<div class="product-details">
+
+
+<h1 id="product-name">
+</h1>
+
+
+<div class="price" id="product-price">
+</div>
+
+
+
+<p class="description" id="product-description">
+</p>
+
+
+
+<div class="specifications">
+
+<h3>
+Specifications
+</h3>
+
+
+<ul id="product-specifications">
+
+</ul>
+
+
+</div>
+
+
+
+<div class="buttons">
+
+
+<button class="add-cart">
+
+Add to Cart
+
+</button>
+
+
+
+<button class="buy-now">
+
+Buy Now
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<script src="products.js"></script>
+
+<script>
+
+
+const params = new URLSearchParams(window.location.search);
+
+const productId = params.get("id");
+
+
+
+const product = products.find(
+
+item => item.id == productId
+
+);
+
+
+
+if(product){
+
+
+document.getElementById("product-image").src = product.image;
+
+
+document.getElementById("product-name").innerText = product.name;
+
+
+document.getElementById("product-price").innerText =
+"€" + product.price;
+
+
+
+document.getElementById("product-description").innerText =
+product.description;
+
+
+
+const specs =
+document.getElementById("product-specifications");
+
+
+
+product.specifications.forEach(item=>{
+
+
+let li=document.createElement("li");
+
+li.innerText=item;
+
+specs.appendChild(li);
+
+
+});
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
