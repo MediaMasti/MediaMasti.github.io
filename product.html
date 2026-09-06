@@ -315,7 +315,7 @@ document.getElementById("product-price").innerText =
 
 
 document.getElementById("product-description").innerText =
-product.description;
+product.fullDescription;
 
 
 
@@ -324,12 +324,16 @@ document.getElementById("product-specifications");
 
 
 
-product.specifications.forEach(item=>{
+Object.entries(product.specifications).forEach(([key,value])=>{
 
 
 let li=document.createElement("li");
 
-li.innerText=item;
+
+li.innerText =
+key + ": " +
+(Array.isArray(value) ? value.join(", ") : value);
+
 
 specs.appendChild(li);
 
