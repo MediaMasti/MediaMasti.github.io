@@ -3,36 +3,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createProductCard(product) {
 
-        return `
-        <div class="product-card"
-             data-id="${product.id}">
+    return `
+    <div class="product-card"
+         data-id="${product.id}"
+         onclick="window.location.href='product.html?id=${product.id}'">
 
-            <img 
-            src="${product.image}" 
-            alt="${product.name}">
+        <img 
+        src="${product.image}" 
+        alt="${product.name}">
 
-            <div class="product-info">
 
-                <h3>${product.name}</h3>
+        <div class="product-info">
 
-                <p>
-                ${product.shortDescription}
-                </p>
 
-                <strong>
-                €${product.price}
-                </strong>
+            <h3>
+            ${product.name}
+            </h3>
 
-                <button class="view-product">
-                View Product
-                </button>
 
-            </div>
+            <p>
+            ${product.shortDescription}
+            </p>
+
+
+            <strong>
+            €${product.price}
+            </strong>
+
+
+            <button 
+            class="view-product"
+            onclick="event.stopPropagation(); window.location.href='product.html?id=${product.id}'">
+
+            View Product
+
+            </button>
+
 
         </div>
-        `;
 
-    }
+
+    </div>
+    `;
+
+}
 
 
 
