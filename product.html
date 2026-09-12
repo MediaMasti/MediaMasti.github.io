@@ -33,12 +33,143 @@ body {
 }
 
 
-/* Image */
+/* Product Gallery */
 
-.product-image img {
+.product-gallery {
+    width: 100%;
+}
 
+
+.main-image-container {
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+
+}
+
+
+.main-image-container img {
+
+    display: block;
     width: 100%;
     border-radius: 18px;
+
+}
+
+
+/* Gallery Arrows */
+
+.gallery-arrow {
+
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    color: #222;
+
+    font-size: 30px;
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.gallery-arrow:hover {
+
+    background: #222;
+    color: white;
+
+    transform: translateY(-50%) scale(1.05);
+
+}
+
+
+.gallery-prev {
+
+    left: 15px;
+
+}
+
+
+.gallery-next {
+
+    right: 15px;
+
+}
+
+
+/* Thumbnails */
+
+.thumbnail-container {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 15px;
+
+    overflow-x: auto;
+
+    padding-bottom: 5px;
+
+}
+
+
+.thumbnail-container img {
+
+    width: 75px;
+    height: 90px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    border: 2px solid transparent;
+
+    opacity: 0.75;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.thumbnail-container img:hover {
+
+    opacity: 1;
+
+}
+
+
+.thumbnail-container img.active {
+
+    border-color: #222;
+
+    opacity: 1;
 
 }
 
@@ -211,14 +342,28 @@ font-size:32px;
 
 <div class="product-container">
 
+<div class="product-gallery">
 
-<div class="product-image">
+    <div class="main-image-container">
 
-<img id="product-image">
+        <button class="gallery-arrow gallery-prev" id="gallery-prev">
+            ‹
+        </button>
+
+        <img id="product-image" alt="Product Image">
+
+        <button class="gallery-arrow gallery-next" id="gallery-next">
+            ›
+        </button>
+
+    </div>
+
+
+    <div class="thumbnail-container" id="thumbnail-container">
+
+    </div>
 
 </div>
-
-
 
 <div class="product-details">
 
