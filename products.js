@@ -84,6 +84,156 @@ const products = [
             sizes: ["M", "L", "XL"],
             style: "Latest Trend"
         }
+    },
+
+
+    {
+        
+        id: 4,
+        category: "Men",
+
+        name: "Classic Look",
+
+        price: 0,
+
+        image: "images/stocksnap-blue-2566082_1920.jpg",
+
+        images: [
+            "images/stocksnap-blue-2566082_1920.jpg"
+        ],
+
+        shortDescription:
+        "Effortless style for everyday life.",
+
+        fullDescription:
+        "Classic men's fashion designed for a timeless and effortless everyday look.",
+
+        specifications: {
+            material: "Premium Fabric",
+            color: "Blue",
+            sizes: ["M", "L", "XL"],
+            style: "Classic"
+        }
+    },
+
+
+    {
+        
+        id: 5,
+        category: "Men",
+
+        name: "Urban Fashion",
+
+        price: 0,
+
+        image: "images/pexels-cottonbro-6764143.jpg",
+
+        images: [
+            "images/pexels-cottonbro-6764143.jpg"
+        ],
+
+        shortDescription:
+        "Fresh looks with a modern attitude.",
+
+        fullDescription:
+        "Contemporary men's fashion inspired by modern urban style and everyday comfort.",
+
+        specifications: {
+            material: "Premium Fabric",
+            color: "Blue",
+            sizes: ["M", "L", "XL"],
+            style: "Urban Casual"
+        }
+    },
+
+
+    {
+
+        id: 6,
+        category: "Men",
+
+        name: "Everyday Essentials",
+
+        price: 0,
+
+        image: "images/pexels-onkar-salvi-28181962-11546650.jpg",
+
+        images: [
+            "images/pexels-onkar-salvi-28181962-11546650.jpg"
+        ],
+
+        shortDescription:
+        "Comfort meets contemporary fashion.",
+
+        fullDescription:
+        "Versatile everyday fashion combining contemporary design with practical comfort.",
+
+        specifications: {
+            material: "Quality Fabric",
+            color: "White",
+            sizes: ["M", "L", "XL"],
+            style: "Everyday Casual"
+        }
+    },
+
+
+    {
+        
+        id: 7,
+        category: "Women",
+
+        name: "Modern Collection",
+
+        price: 0,
+
+        image: "images/naseebo-iPxI9UUXrlc-unsplash.jpg",
+
+        images: [
+            "images/naseebo-iPxI9UUXrlc-unsplash.jpg"
+        ],
+
+        shortDescription:
+        "Discover fresh and confident looks.",
+
+        fullDescription:
+        "A modern women's fashion collection featuring fresh, confident and contemporary looks.",
+
+        specifications: {
+            material: "Quality Fabric",
+            color: "Mixed",
+            sizes: ["S", "M", "L"],
+            style: "Modern Fashion"
+        }
+    },
+
+
+    {
+        
+        id: 8,
+        category: "New Arrivals",
+
+        name: "Latest Trends",
+
+        price: 0,
+
+        image: "images/ralphs_fotos-cap-4497323_1920.jpg",
+
+        images: [
+            "images/ralphs_fotos-cap-4497323_1920.jpg"
+        ],
+
+        shortDescription:
+        "Discover what's new in fashion.",
+
+        fullDescription:
+        "A new fashion arrival featuring contemporary styles and the latest trends.",
+
+        specifications: {
+            material: "Quality Fabric",
+            color: "Mixed",
+            sizes: ["M", "L", "XL"],
+            style: "Latest Trend"
+        }
     }
 
 ];
