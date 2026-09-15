@@ -8,11 +8,11 @@ const products = [
 
         price: 49.99,
 
-        image: "servetphotograph-fashion-7047683_1920.jpg",
+        image: "images/servetphotograph-fashion-7047683_1920.jpg",
 
         images: [
-    "servetphotograph-fashion-7047683_1920.jpg"
-        ],
+            "images/servetphotograph-fashion-7047683_1920.jpg"
+         ],
         
         shortDescription:
         "Contemporary men's fashion inspiration.",
@@ -37,10 +37,10 @@ const products = [
 
         price: 79.99,
 
-        image: "naseebo-DrGzDjZfCow-unsplash.jpg",
+        image: "images/naseebo-DrGzDjZfCow-unsplash.jpg",
 
         images: [
-    "naseebo-DrGzDjZfCow-unsplash.jpg"
+            "images/naseebo-DrGzDjZfCow-unsplash.jpg"
         ],
         
         shortDescription:
@@ -66,10 +66,10 @@ const products = [
 
         price: 69.99,
 
-        image: "ds_30-clothes-4862980_1920.jpg",
+        image: "images/ds_30-clothes-4862980_1920.jpg",
 
         images: [
-    "ds_30-clothes-4862980_1920.jpg"
+           "images/ds_30-clothes-4862980_1920.jpg"
         ],
 
         shortDescription:
