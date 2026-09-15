@@ -3,35 +3,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createProductCard(product) {
 
+    let cardClass = "product-card";
+
+    if (product.category === "Women") {
+        cardClass = "women-card";
+    }
+
+    else if (product.category === "New Arrivals") {
+        cardClass = "new-card";
+    }
+
+
     return `
-    <div class="product-card"
+    <div class="${cardClass}"
          data-id="${product.id}"
          onclick="window.location.href='product.html?id=${product.id}'">
 
-        <img 
-        src="${product.image}" 
+        <img
+        src="${product.image}"
         alt="${product.name}">
 
 
         <div class="product-info">
 
-
             <h3>
             ${product.name}
             </h3>
-
 
             <p>
             ${product.shortDescription}
             </p>
 
-
             <strong>
             €${product.price}
             </strong>
 
-
-            <button 
+            <button
             class="view-product"
             onclick="event.stopPropagation(); window.location.href='product.html?id=${product.id}'">
 
@@ -39,9 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             </button>
 
-
         </div>
-
 
     </div>
     `;
